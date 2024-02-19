@@ -1,6 +1,6 @@
 package com.job.tracker.enums;
 
-public enum  enums {
+public enum JobType {
 
     ELECTRICAL,
     CODING,

@@ -33,4 +33,16 @@ public class JobServiceImp implements JobService{
            jobRepository.save(job1);
         return new JobResponse<>("REGISTRATION SUCCESSFULLY",job1);
     }
+
+    @Override
+    public JobResponse deleteJob(String companyName){
+        Optional<Job> deleteJob = jobRepository.findByCompanyName(companyName);
+        if (deleteJob.isEmpty()){
+            return  new JobResponse<>("JOB NOT FOUND ",  companyName);
+        }
+        Job foundJob= deleteJob.get();
+        jobRepository.delete(foundJob);
+        return  new JobResponse<>("JOB DELETED SUCCESSFULLY  ",  foundJob);
+    }
+
 }

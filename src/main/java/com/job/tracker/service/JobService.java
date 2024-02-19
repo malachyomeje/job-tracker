@@ -5,4 +5,6 @@ import com.job.tracker.dtos.response.JobResponse;
 
 public interface JobService {
     JobResponse jobRegister (JobRequest jobRequest);
+
+    JobResponse deleteJob(String companyName);
 }

@@ -4,10 +4,7 @@ import com.job.tracker.dtos.request.JobRequest;
 import com.job.tracker.dtos.response.JobResponse;
 import com.job.tracker.service.JobService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,4 +16,9 @@ public class JobController {
     public JobResponse jobRegister (@RequestBody JobRequest jobRequest){
         return jobService.jobRegister(jobRequest);
     }
+
+@DeleteMapping("deleteJob/{companyName}")
+    public JobResponse deleteJob(@PathVariable String companyName) {
+    return jobService.deleteJob(companyName);
+}
 }
