@@ -7,6 +7,7 @@ import com.job.tracker.repository.JobRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -45,4 +46,20 @@ public class JobServiceImp implements JobService{
         return  new JobResponse<>("JOB DELETED SUCCESSFULLY  ",  foundJob);
     }
 
+    @Override
+public List<Job> findAll(){
+     return jobRepository.findAll();
 }
+
+    @Override
+    public JobResponse findByCompanyName (String companyName) {
+        Optional<Job> findByCompanyName = jobRepository.findByCompanyName(companyName);
+        if (findByCompanyName.isEmpty()) {
+            return new JobResponse<>("JOB NOT IN DATABASE",companyName);
+        }
+        Job job = findByCompanyName.get();
+
+        return new JobResponse<>("SUCCESSFULLY",job);
+    }
+
+    }
