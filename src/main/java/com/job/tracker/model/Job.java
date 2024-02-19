@@ -16,7 +16,6 @@ public class Job {
     private Long Id;
     private String companyName;
     private String country;
-
     private String jobType;
     private String jobName;
     private String requirement;
