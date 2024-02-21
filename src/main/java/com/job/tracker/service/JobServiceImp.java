@@ -58,8 +58,9 @@ public List<Job> findAll(){
             return new JobResponse<>("JOB NOT IN DATABASE",companyName);
         }
         Job job = findByCompanyName.get();
-
         return new JobResponse<>("SUCCESSFULLY",job);
     }
+
+
 
     }
